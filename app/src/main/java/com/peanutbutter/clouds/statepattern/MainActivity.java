@@ -1,0 +1,48 @@
+package com.peanutbutter.clouds.statepattern;
+
+import android.media.MediaPlayer;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+import com.peanutbutter.clouds.statepattern.StateStuff.Stopped;
+
+import io.reactivex.annotations.NonNull;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Player player;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Start the media play in a valid state for our system.
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.toirneach);
+        mediaPlayer.setOnErrorListener(this::handleError);
+        mediaPlayer.stop();
+
+        player = new Player(mediaPlayer, new Stopped());
+    }
+
+    private boolean handleError(@NonNull MediaPlayer mediaPlayer,
+                                @SuppressWarnings("unused") int what,
+                                @SuppressWarnings("unused") int extra) {
+        mediaPlayer.release();
+        player = new Player(mediaPlayer, new Stopped());
+        return true;
+    }
+
+    public void playClicked(View view) {
+        player.play();
+    }
+
+    public void pauseClicked(View view) {
+        player.pause();
+    }
+
+    public void stopClicked(View view) {
+        player.stop();
+    }
+}
