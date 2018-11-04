@@ -25,8 +25,6 @@ public class AntiPlayer implements IPlayer {
     @Override
     public void play() {
         switch (currentState) {
-            case PLAYING:
-                break;
             case PAUSED:
                 mediaPlayer.start();
                 break;
@@ -48,8 +46,6 @@ public class AntiPlayer implements IPlayer {
         switch (currentState) {
             case PLAYING:
                 mediaPlayer.pause();
-                break;
-            case PAUSED:
                 break;
             case STOPPED:
                 try {
@@ -73,8 +69,6 @@ public class AntiPlayer implements IPlayer {
                 break;
             case PAUSED:
                 mediaPlayer.stop();
-                break;
-            case STOPPED:
                 break;
         }
 

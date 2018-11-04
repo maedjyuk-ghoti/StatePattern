@@ -1,11 +1,12 @@
 package com.peanutbutter.clouds.statepattern.ThePattern;
 
 import android.media.MediaPlayer;
+import android.support.annotation.NonNull;
 
 public class Paused implements IPlayingState {
 
     @Override
-    public IPlayingState handleInput(MediaPlayer mediaPlayer, Input input) {
+    public IPlayingState handleInput(@NonNull MediaPlayer mediaPlayer, Input input) {
         switch (input) {
             case PLAY:
                 handlePlay(mediaPlayer);
@@ -17,11 +18,11 @@ public class Paused implements IPlayingState {
         return this;
     }
 
-    private void handlePlay(MediaPlayer mediaPlayer) {
+    private void handlePlay(@NonNull MediaPlayer mediaPlayer) {
         mediaPlayer.start();
     }
 
-    private void handleStop(MediaPlayer mediaPlayer) {
+    private void handleStop(@NonNull MediaPlayer mediaPlayer) {
         mediaPlayer.stop();
     }
 }
