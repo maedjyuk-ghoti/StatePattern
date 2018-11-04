@@ -9,14 +9,14 @@ import com.peanutbutter.clouds.statepattern.StateStuff.Stopped;
 
 import io.reactivex.annotations.NonNull;
 
-public class MainActivity extends AppCompatActivity {
+public class StatePatternActivity extends AppCompatActivity {
 
     private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.state_pattern_activity);
 
         // Start the media play in a valid state for our system.
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.toirneach);
