@@ -19,20 +19,25 @@ public class StatePatternActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.state_pattern_activity);
 
+        player = createNewPlayer();
+    }
+
+    // factory method... ignore this.
+    private IPlayer createNewPlayer() {
         // Start the media play in a valid state for our system.
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.toirneach);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.hamilton_polka);
         mediaPlayer.setOnErrorListener(this::handleError);
         mediaPlayer.stop();
 
-        player = new Player(mediaPlayer, new Stopped());
-//        player = new AntiPlayer(mediaPlayer, AntiPlayer.State.STOPPED);
+//        return new Player(mediaPlayer, new Stopped());
+        return new AntiPlayer(mediaPlayer, AntiPlayer.State.STOPPED);
     }
 
     private boolean handleError(@NonNull MediaPlayer mediaPlayer,
                                 @SuppressWarnings("unused") int what,
                                 @SuppressWarnings("unused") int extra) {
         mediaPlayer.release();
-        player = new Player(mediaPlayer, new Stopped());
+        player = createNewPlayer();
         return true;
     }
 
