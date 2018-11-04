@@ -1,11 +1,12 @@
-package com.peanutbutter.clouds.statepattern;
+package com.peanutbutter.clouds.statepattern.State;
 
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.peanutbutter.clouds.statepattern.StateStuff.Stopped;
+import com.peanutbutter.clouds.statepattern.R;
+import com.peanutbutter.clouds.statepattern.State.ThePattern.Stopped;
 
 import io.reactivex.annotations.NonNull;
 

@@ -1,4 +1,4 @@
-package com.peanutbutter.clouds.statepattern.StateStuff;
+package com.peanutbutter.clouds.statepattern.State.ThePattern;
 
 import android.media.MediaPlayer;
 

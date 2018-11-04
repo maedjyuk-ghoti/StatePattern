@@ -1,15 +1,15 @@
-package com.peanutbutter.clouds.statepattern.StateStuff;
+package com.peanutbutter.clouds.statepattern.State.ThePattern;
 
 import android.media.MediaPlayer;
 
-public class Playing implements IPlayingState {
+public class Paused implements IPlayingState {
 
     @Override
     public IPlayingState handleInput(MediaPlayer mediaPlayer, Input input) {
         switch (input) {
-            case PAUSE:
-                handlePause(mediaPlayer);
-                return new Paused();
+            case PLAY:
+                handlePlay(mediaPlayer);
+                return new Playing();
             case STOP:
                 handleStop(mediaPlayer);
                 return new Stopped();
@@ -17,8 +17,8 @@ public class Playing implements IPlayingState {
         return this;
     }
 
-    private void handlePause(MediaPlayer mediaPlayer) {
-        mediaPlayer.pause();
+    private void handlePlay(MediaPlayer mediaPlayer) {
+        mediaPlayer.start();
     }
 
     private void handleStop(MediaPlayer mediaPlayer) {
