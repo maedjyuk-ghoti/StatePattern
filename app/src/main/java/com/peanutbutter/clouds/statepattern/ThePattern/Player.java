@@ -1,8 +1,8 @@
-package com.peanutbutter.clouds.statepattern.State;
+package com.peanutbutter.clouds.statepattern.ThePattern;
 
 import android.media.MediaPlayer;
 
-import com.peanutbutter.clouds.statepattern.State.ThePattern.IPlayingState;
+import com.peanutbutter.clouds.statepattern.ThePattern.IPlayingState;
 
 public class Player {
 
