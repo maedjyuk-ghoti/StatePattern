@@ -26,7 +26,7 @@ public class AntiPlayer implements IPlayer {
     public void play() {
         switch (currentState) {
             case PLAYING:
-                return;
+                break;
             case PAUSED:
                 mediaPlayer.start();
                 break;
@@ -39,6 +39,8 @@ public class AntiPlayer implements IPlayer {
                 }
                 break;
         }
+
+        currentState = State.PLAYING;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class AntiPlayer implements IPlayer {
                 mediaPlayer.pause();
                 break;
             case PAUSED:
-                return;
+                break;
             case STOPPED:
                 try {
                     mediaPlayer.prepare();
@@ -59,6 +61,8 @@ public class AntiPlayer implements IPlayer {
                 }
                 break;
         }
+
+        currentState = State.PAUSED;
     }
 
     @Override
@@ -73,6 +77,8 @@ public class AntiPlayer implements IPlayer {
             case STOPPED:
                 break;
         }
+
+        currentState = State.STOPPED;
     }
 
     public enum State {
