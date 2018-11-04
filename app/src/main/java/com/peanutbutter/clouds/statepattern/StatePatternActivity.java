@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.peanutbutter.clouds.statepattern.TheAntiPattern.AntiPlayer;
 import com.peanutbutter.clouds.statepattern.ThePattern.Player;
 import com.peanutbutter.clouds.statepattern.ThePattern.Stopped;
 
 public class StatePatternActivity extends AppCompatActivity {
 
-    private Player player;
+    private IPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class StatePatternActivity extends AppCompatActivity {
         mediaPlayer.stop();
 
         player = new Player(mediaPlayer, new Stopped());
+//        player = new AntiPlayer(mediaPlayer, AntiPlayer.State.STOPPED);
     }
 
     private boolean handleError(@NonNull MediaPlayer mediaPlayer,

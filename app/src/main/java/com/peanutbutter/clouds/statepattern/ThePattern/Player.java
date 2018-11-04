@@ -1,15 +1,15 @@
 package com.peanutbutter.clouds.statepattern.ThePattern;
 
 import android.media.MediaPlayer;
+import android.support.annotation.NonNull;
+import com.peanutbutter.clouds.statepattern.IPlayer;
 
-import com.peanutbutter.clouds.statepattern.ThePattern.IPlayingState;
-
-public class Player {
+public class Player implements IPlayer {
 
     private IPlayingState playingState;
     private MediaPlayer mediaPlayer;
 
-    Player(MediaPlayer mediaPlayer, IPlayingState startingState) {
+    public Player(@NonNull MediaPlayer mediaPlayer, IPlayingState startingState) {
         this.mediaPlayer = mediaPlayer;
         mediaPlayer.setOnCompletionListener(this::handleOnComplete);
 
