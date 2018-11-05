@@ -29,8 +29,8 @@ public class StatePatternActivity extends AppCompatActivity {
         mediaPlayer.setOnErrorListener(this::handleError);
         mediaPlayer.stop();
 
-//        return new Player(mediaPlayer, new Stopped());
         return new AntiPlayer(mediaPlayer, AntiPlayer.State.STOPPED);
+//        return new Player(mediaPlayer, new Stopped());
     }
 
     private boolean handleError(@NonNull MediaPlayer mediaPlayer,
@@ -51,5 +51,9 @@ public class StatePatternActivity extends AppCompatActivity {
 
     public void stopClicked(View view) {
         player.stop();
+    }
+
+    public void skipForwardClicked(View view) {
+        player.skipForward();
     }
 }

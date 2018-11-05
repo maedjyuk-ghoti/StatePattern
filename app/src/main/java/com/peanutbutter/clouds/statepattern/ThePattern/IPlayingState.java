@@ -8,6 +8,6 @@ public interface IPlayingState {
     IPlayingState handleInput(@NonNull MediaPlayer mediaPlayer, Input input);
 
     enum Input {
-        PAUSE, PLAY, STOP
+        PAUSE, PLAY, STOP, SKIP_FORWARD
     }
 }

@@ -6,4 +6,6 @@ public interface IPlayer {
     void pause();
 
     void stop();
+
+    void skipForward();
 }

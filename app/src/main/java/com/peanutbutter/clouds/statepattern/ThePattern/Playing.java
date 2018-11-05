@@ -14,6 +14,9 @@ public class Playing implements IPlayingState {
             case STOP:
                 handleStop(mediaPlayer);
                 return new Stopped();
+            case SKIP_FORWARD:
+                handleSkipForward(mediaPlayer);
+                return this;
         }
         return this;
     }
@@ -24,5 +27,9 @@ public class Playing implements IPlayingState {
 
     private void handleStop(@NonNull MediaPlayer mediaPlayer) {
         mediaPlayer.stop();
+    }
+
+    private void handleSkipForward(@NonNull MediaPlayer mediaPlayer) {
+        mediaPlayer.seekTo(mediaPlayer.getCurrentPosition() + 10000);
     }
 }

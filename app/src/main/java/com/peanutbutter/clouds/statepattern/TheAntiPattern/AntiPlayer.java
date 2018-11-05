@@ -2,6 +2,7 @@ package com.peanutbutter.clouds.statepattern.TheAntiPattern;
 
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
+
 import com.peanutbutter.clouds.statepattern.IPlayer;
 
 import java.io.IOException;
@@ -73,6 +74,11 @@ public class AntiPlayer implements IPlayer {
         }
 
         currentState = State.STOPPED;
+    }
+
+    @Override
+    public void skipForward() {
+        mediaPlayer.seekTo(mediaPlayer.getCurrentPosition() + 10000);
     }
 
     public enum State {
